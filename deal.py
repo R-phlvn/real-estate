@@ -1,4 +1,3 @@
-from Base import BaseClass
 from abc import ABC
 
 class Sell(ABC):
@@ -25,5 +24,3 @@ class Rent(ABC):
         print(f"InitialPrice: {self.initial_price}"
               f"\tDiscountable: {self.discountable}"
               f"\tConvertable: {self.convertable}")
-
-    

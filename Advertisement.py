@@ -2,7 +2,7 @@ from estate import Apartment, House, Store
 from deal import Sell, Rent
 from Base import BaseClass
 
-class ApartmentSell(Apartment, Sell):
+class ApartmentSell(BaseClass, Apartment, Sell):
     def show_detail(self):
         self.show_description()
         self.show_price()

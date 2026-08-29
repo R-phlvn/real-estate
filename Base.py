@@ -12,7 +12,7 @@ class BaseClass(ABC):
     def generate_id(cls):
         cls._id += 1
         return cls._id
-    
+
     @classmethod
     def store(cls, obj):
         if cls.object_list is None:
