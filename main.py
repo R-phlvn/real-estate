@@ -26,7 +26,7 @@ if __name__ == "__main__":
 
     Hs1 = HouseSell(
         has_yard=True, floor_count=2,
-        user=User.object_list[2], area=90, room_count=3,
+        user=User.object_list[2], area=80, room_count=3,
         built_year=1400, region=vakilabad, address="VakilAbad 22...",
         price_per_meter=100, discountable=True, convertable=True
     )
@@ -34,10 +34,12 @@ if __name__ == "__main__":
 
     Hs2 = HouseSell(
         has_yard=True, floor_count=2,
-        user=User.object_list[2], area=90, room_count=3,
+        user=User.object_list[2], area=80, room_count=3,
         built_year=1400, region=faramarz, address="Faramarz 22...",
         price_per_meter=100, discountable=True, convertable=True
     )
 
-    res = HouseSell.manager.search(region=faramarz)
-    print(res)
+    res = HouseSell.manager.search(area=80)
+    #print(res)
+    Hsget = HouseSell.manager.get(area=80)
+    print(Hsget)
