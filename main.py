@@ -39,7 +39,28 @@ if __name__ == "__main__":
         price_per_meter=100, discountable=True, convertable=True
     )
 
-    res = HouseSell.manager.search(area=80)
-    #print(res)
-    Hsget = HouseSell.manager.get(area=80)
-    print(Hsget)
+    Hs3 = HouseSell(
+        has_yard=True, floor_count=2,
+        user=User.object_list[2], area=80, room_count=3,
+        built_year=1400, region=vakilabad, address="VakilAbad 22...",
+        price_per_meter=50, discountable=True, convertable=True
+    )
+
+    Hs4 = HouseSell(
+        has_yard=True, floor_count=2,
+        user=User.object_list[2], area=80, room_count=3,
+        built_year=1400, region=faramarz, address="Faramarz 22...",
+        price_per_meter=10, discountable=True, convertable=True
+    )
+
+    Hs5 = HouseSell(
+        has_yard=True, floor_count=2,
+        user=User.object_list[2], area=80, room_count=3,
+        built_year=1400, region=faramarz, address="Faramarz 22...",
+        price_per_meter=200, discountable=True, convertable=True
+    )
+
+    res = HouseSell.manager.search(price_per_meter__min=50)
+    print(res)
+    Hsget = HouseSell.manager.get(price_per_meter=200)
+    #print(Hsget)

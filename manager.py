@@ -5,9 +5,24 @@ class Manager:
     def search(self, **kwargs):
         result = list()
         for key, value in kwargs.items():
+            if key.endswith('__min'):
+                key = key[:-5]
+                compare_key = 'min'
+            elif key.endswith('__max'):
+                key = key[:-5]
+                compare_kay = 'max' 
+            else:
+                compare_key = 'equal'
             for obj in self._class.object_list:
-                if hasattr(obj, key) and getattr(obj, key) == value:
-                    result.append(obj)
+                if hasattr(obj, key):
+                    if compare_key == 'min':
+                        status = bool(getattr(obj, key) >= value)
+                    elif compare_key == 'max':
+                        status = bool(getattr(obj, key) <= value)
+                    else:
+                        status = bool(getattr(obj, key) <= value)
+                    if status:
+                        result.append(obj)
         return result
     
     def get(self, **kwargs):
