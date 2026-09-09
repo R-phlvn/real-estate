@@ -10,7 +10,7 @@ class Manager:
                 compare_key = 'min'
             elif key.endswith('__max'):
                 key = key[:-5]
-                compare_kay = 'max' 
+                compare_key = 'max' 
             else:
                 compare_key = 'equal'
             for obj in self._class.object_list:
@@ -20,7 +20,7 @@ class Manager:
                     elif compare_key == 'max':
                         status = bool(getattr(obj, key) <= value)
                     else:
-                        status = bool(getattr(obj, key) <= value)
+                        status = bool(getattr(obj, key) == value)
                     if status:
                         result.append(obj)
         return result
